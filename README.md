@@ -7,7 +7,7 @@ a [Sails](http://sailsjs.org) application
 1. Clone this Repo
 2. Run `sails lift`
 3. Put something in the DB by running this in the browser: `http://localhost:1337/test/create?name=Hello`
-4. Reload this link over and over and watch the memory leak: `http://localhost:1337/testthis/1`
+4. Reload this link over and over and watch the memory leak: `http://localhost:1337/testthis/<newId>`
 
 ### OR
 
@@ -27,4 +27,4 @@ testGet:function(req,res)
 6. In models.js, uncomment `migrate:'alter'`
 7. Reboot the server running `sails lift`
 8. Put something in the DB by running this in the browser: `http://localhost:1337/test/create?name=Hello`
-9. Reload this link over and over and watch the memory leak: `http://localhost:1337/testthis/1`
+9. Reload this link over and over and watch the memory leak: `http://localhost:1337/testthis/<newId>`
