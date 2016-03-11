@@ -58,11 +58,11 @@ module.exports.connections = {
   ***************************************************************************/
   someMongodbServer: {
     adapter: 'sails-mongo',
-    host: 'localhost',
-    port: 27017,
-    // user: 'username',
-    // password: 'password',
-    // database: 'your_mongo_db_name_here'
+    host: process.env.MONGODB_HOST || 'localhost',
+    port: process.env.MONGODB_PORT || 27017,
+    user: process.env.MONGODB_USERNAME || '',
+    password: process.env.MONGODB_PASSWORD  || '',
+    database: process.env.MONGODB_DATABASE || 'test-app'
   },
 
   /***************************************************************************
