@@ -1,18 +1,25 @@
 /**
  * TestController
  *
- * @description :: Server-side logic for managing Tests
- * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
+ * A simple controller with a single action for the purpose of benchmarking and exploring a potential memory leak.
  */
 
 module.exports = {
-	testGet:function(req,res)
-  {
+  
+  /**
+   * @param {String|Number} testId
+   */
+	testGet:function(req,res) {
     var testId = req.param('testId');
     
-    Test.findOneById(testId).then(function(test){
-      res.send("Hi");
+    Test.findOneById(testId)
+    .catch(function _afterFailure (err){
+      return res.serverError(err);
+    })
+    .then(function _afterSuccess(test){
+      return res.send('Hi');
     });
   }
+  
 };
 
